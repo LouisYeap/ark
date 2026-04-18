@@ -50,6 +50,7 @@ jobs:
         run: cargo build --release --target ${{ matrix.target }}
 
       - name: Prepare artifact
+        shell: bash
         run: |
           mkdir -p release
           BINARY="target/${{ matrix.target }}/release/ark"

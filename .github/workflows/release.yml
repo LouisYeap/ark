@@ -53,11 +53,10 @@ jobs:
         shell: bash
         run: |
           mkdir -p release
-          BINARY="target/${{ matrix.target }}/release/ark"
-          if [ -f "${BINARY}.exe" ]; then
-            cp "${BINARY}.exe" "release/${{ matrix.artifact }}.exe"
+          if [ -f "target/${{ matrix.target }}/release/ark.exe" ]; then
+            cp "target/${{ matrix.target }}/release/ark.exe" "release/${{ matrix.artifact }}"
           else
-            cp "$BINARY" "release/${{ matrix.artifact }}"
+            cp "target/${{ matrix.target }}/release/ark" "release/${{ matrix.artifact }}"
           fi
 
       - name: Upload artifact
